@@ -68,7 +68,7 @@ namespace HomeWork6
         }
 
         /// <summary>
-        /// Задание 1 -  Доработка программу вывода таблицы функции так, 
+        /// Задание 1 -  Доработка программы вывода таблицы функции так, 
         /// чтобы можно было передавать функции типа double (double, double)
         /// </summary>
         static void Exercise1()
@@ -125,7 +125,7 @@ namespace HomeWork6
         static double X3(double x) => x * x * x;
 
         /// <summary>
-        /// Заданеи 2 - Доработка программы нахождения минимума функции
+        /// Задание 2 - Доработка программы нахождения минимума функции
         /// </summary>
         static void Exercise2()
         {
@@ -215,21 +215,18 @@ namespace HomeWork6
         }
 
         /// <summary>
-        ///  Задание 3 - Доработка програмы считывания иноформации 
+        ///  Задание 3 - Доработка программы считывания информации 
         ///  о студентах из файла students.csv
         /// </summary>
         static void Exercise3()
         {
             List<Student> studentsList = new List<Student>();
-            // Создаем список студентов
-            //DateTime dt = DateTime.Now;
             StreamReader sr = new StreamReader("students.csv");
             while (!sr.EndOfStream)
             {
                 try
                 {
                     string[] s = sr.ReadLine().Split(';');
-                    // Добавляем в список новый экземпляр класса Student
                     studentsList.Add(new Student(s[0], s[1], s[2], s[3], s[4], int.Parse(s[5]), int.Parse(s[6]), int.Parse(s[7]), s[8]));
                 }
                 catch (Exception e)
@@ -279,7 +276,6 @@ namespace HomeWork6
                             {
                                 Console.WriteLine("Список студентов отсортированых по возрасту");
                                 studentsList.Sort(AgeCompare);
-                                //list = list.OrderBy(s => s.age).ToList();
                                 Console.WriteLine("|----Имя----|--Возраст--|");
                                 foreach (var st in studentsList)
                                     Console.WriteLine("|{0,11}|{1,11}|", st.firstName, st.age);
@@ -291,7 +287,6 @@ namespace HomeWork6
                                 Console.WriteLine("Список студентов отсортированых по курсу и возрасту");
                                 Console.WriteLine();
                                 studentsList.Sort(CourseAndAgeComapare);
-                                //list = list.OrderBy(s => s.course).ThenBy(s=>s.age).ToList();
                                 Console.WriteLine("|----Имя----|--Курс--|--Возраст--|");
                                 foreach (var st in studentsList)
                                     Console.WriteLine("|{0,11}|{1,8}|{2,11}|", st.firstName, st.course, st.age);
